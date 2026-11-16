@@ -1,94 +1,94 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Friday Night Funkin'</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #17112b, #25205c);
-      color: white;
-      text-align: center;
-    }
-
-    header {
-      background: #101020;
-      padding: 25px;
-      border-bottom: 4px solid #00eaff;
-    }
-
-    h1 {
-      color: #00eaff;
-      font-size: 42px;
-      text-shadow: 3px 3px #ed32c5;
-    }
-
-    .hero {
-      padding: 65px 20px;
-    }
-
-    .hero h2 {
-      font-size: 32px;
-    }
-
-    .play-button {
-      display: inline-block;
-      background: #ed32c5;
-      color: white;
-      padding: 18px 45px;
-      font-size: 24px;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 12px;
-      box-shadow: 0 5px #941b83;
-      cursor: pointer;
-    }
-
-    .play-button:hover {
-      background: #00bddd;
-      transform: scale(1.05);
-    }
-
-    .characters {
-      padding: 30px;
-    }
-
-    .characters h2 {
-      color: #00eaff;
-    }
-
-    footer {
-      background: #101020;
-      padding: 20px;
-      margin-top: 50px;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b16">
+  <meta name="description" content="ZXD Cloud Gaming — a browser gaming arcade.">
+  <title>ZXD Cloud Gaming</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <header>
-    <h1>FRIDAY NIGHT FUNKIN'</h1>
-    <p>Welcome to the FNF Fan Website!</p>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="logo" href="#" aria-label="ZXD Cloud Gaming home"><span class="logo-mark">Z</span><span>ZXD <b>CLOUD GAMING</b></span></a>
+    <nav class="main-nav">
+      <button class="nav-link active" data-view="home">Discover</button>
+      <button class="nav-link" data-view="library">Game library</button>
+      <button class="nav-link" data-view="favorites">Favorites <span id="favoriteCount" class="count">0</span></button>
+    </nav>
+    <div class="account-actions">
+      <button id="profileButton" class="profile-button" title="Profile"><span id="avatar">G</span><span id="accountLabel">Guest</span></button>
+      <button id="authButton" class="button button-outline">Sign in</button>
+    </div>
   </header>
 
-  <section class="hero">
-    <h2>Are you ready to rap battle?</h2>
-    <p>Get ready to hit those notes!</p>
-    <a class="play-button" href="#characters">LET'S GO!</a>
-  </section>
+  <main>
+    <section id="homeView" class="view active">
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="pill"><span class="live-dot"></span> YOUR NEXT GAME IS ONE CLICK AWAY</div>
+          <h1>PLAY MORE.<br><span>WAIT LESS.</span></h1>
+          <p>Jump into fun, free-to-play browser games. No downloads, no installs — just press play.</p>
+          <div class="hero-actions"><button class="button button-primary" data-view="library">Explore games <span>↗</span></button><button class="button button-quiet" data-view="favorites">♥ My favorites</button></div>
+          <div class="hero-stats"><div><strong id="gameTotal">0</strong><small>GAMES</small></div><div><strong>INSTANT</strong><small>BROWSER PLAY</small></div><div><strong>FREE</strong><small>TO START</small></div></div>
+        </div>
+        <div class="hero-art" aria-hidden="true"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="hero-cube">ZXD<span>▶</span></div><div class="float-tag tag-one">✦ ARCADE</div><div class="float-tag tag-two">LEVEL UP</div></div>
+      </section>
+      <section class="section">
+        <div class="section-heading"><div><p class="eyebrow">HAND-PICKED FOR YOU</p><h2>Featured games</h2></div><button class="text-link" data-view="library">View all games ↗</button></div>
+        <div id="featuredGrid" class="game-grid"></div>
+      </section>
+      <section class="section category-section">
+        <div class="section-heading"><div><p class="eyebrow">FIND YOUR NEXT OBSESSION</p><h2>Browse categories</h2></div></div>
+        <div id="categoryGrid" class="category-grid"></div>
+      </section>
+    </section>
 
-  <section class="characters" id="characters">
-    <h2>Characters</h2>
-    <p>Boyfriend 🎤 | Girlfriend ❤️ | Pico 🔫</p>
-    <p>More characters coming soon!</p>
-  </section>
+    <section id="libraryView" class="view">
+      <div class="page-heading"><div><p class="eyebrow">THE ARCADE</p><h1>Game library</h1><p>Pick a game and get straight into the action.</p></div></div>
+      <div class="toolbar"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search games..." autocomplete="off"></label><select id="categoryFilter" aria-label="Filter by category"><option value="All">All categories</option></select><select id="sortFilter" aria-label="Sort games"><option value="featured">Featured first</option><option value="az">Name: A to Z</option></select></div>
+      <div id="libraryGrid" class="game-grid"></div>
+      <p id="emptyState" class="empty-state hidden">No games found. Try another search or category.</p>
+    </section>
 
-  <footer>
-    <p>Unofficial Friday Night Funkin' Fan Website</p>
-  </footer>
+    <section id="favoritesView" class="view">
+      <div class="page-heading"><div><p class="eyebrow">YOUR PERSONAL ARCADE</p><h1>Favorites</h1><p>Games you've saved for later.</p></div></div>
+      <div id="favoritesGrid" class="game-grid"></div><p id="favoritesEmpty" class="empty-state">You haven't saved any games yet. Tap the ♡ on a game card to add it here.</p>
+    </section>
+
+    <section id="profileView" class="view narrow-view">
+      <div class="page-heading"><div><p class="eyebrow">PLAYER HUB</p><h1>Your profile</h1><p>Manage your local demo account and see your arcade stats.</p></div></div>
+      <div class="profile-card"><div class="big-avatar" id="profileAvatar">G</div><div><h2 id="profileName">Guest player</h2><p id="profileEmail">Not signed in</p></div></div>
+      <div class="profile-stats"><div><strong id="playedCount">0</strong><span>Games launched</span></div><div><strong id="savedCount">0</strong><span>Favorites</span></div></div>
+      <button id="profileAuthButton" class="button button-primary">Create account / Sign in</button>
+      <p class="notice">Demo accounts are stored only in this browser. This is not secure production authentication and does not sync across devices.</p>
+    </section>
+
+    <section id="adminView" class="view narrow-view">
+      <div class="page-heading"><div><p class="eyebrow">SITE MANAGEMENT</p><h1>Admin panel</h1><p>Add a game link to the library on this browser.</p></div></div>
+      <div class="admin-warning">Demo admin access: use the local demo admin credentials shown in README. Do not use this client-side gate for a real public admin system.</div>
+      <form id="adminForm" class="admin-form">
+        <label>Game title<input name="title" required maxlength="45" placeholder="My cool game"></label>
+        <label>Category<select name="category"><option>Arcade</option><option>Puzzle</option><option>Action</option><option>Casual</option><option>Strategy</option></select></label>
+        <label>Short description<input name="description" required maxlength="100" placeholder="A quick description"></label>
+        <label>Game URL<input name="url" type="url" required placeholder="https://example.com/game"></label>
+        <button class="button button-primary" type="submit">＋ Add game</button>
+      </form>
+      <h2 class="subheading">Manage custom games</h2><div id="customGameList" class="custom-game-list"></div>
+    </section>
+  </main>
+
+  <footer><div class="footer-logo">ZXD <b>CLOUD GAMING</b></div><p>Browser gaming, made simple.</p><small>Game names, artwork and links are examples. Add only games and assets you have permission to use.</small></footer>
+
+  <div id="gameModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card game-modal-card"><div class="modal-top"><div><p class="eyebrow">NOW PLAYING</p><h2 id="modalTitle">Game title</h2></div><button class="icon-button" id="closeGame" aria-label="Close game">✕</button></div><div id="gameStage" class="game-stage"></div><p id="gameHelp" class="game-help"></p></div>
+  </div>
+
+  <div id="authModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <div class="modal-card auth-card"><button class="icon-button close-auth" aria-label="Close">✕</button><p class="eyebrow">WELCOME TO THE ARCADE</p><h2 id="authTitle">Sign in</h2><div class="auth-tabs"><button class="active" data-auth-mode="signin">Sign in</button><button data-auth-mode="signup">Create account</button></div><form id="authForm"><label>Username<input name="username" required minlength="3" maxlength="20" autocomplete="username" placeholder="Your player name"></label><label id="emailLabel" class="hidden">Email<input name="email" type="email" autocomplete="email" placeholder="you@example.com"></label><label>Password<input name="password" type="password" required minlength="4" autocomplete="current-password" placeholder="At least 4 characters"></label><button class="button button-primary full-button" type="submit">Continue</button></form><p id="authMessage" class="form-message"></p><p class="notice">This demo stores credentials in local browser storage. Never reuse a real password here.</p></div>
+  </div>
+  <div id="toast" class="toast hidden"></div>
+  <script src="app.js"></script>
 </body>
 </html>
