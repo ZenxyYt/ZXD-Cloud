@@ -1,94 +1,91 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#090b16">
-  <meta name="description" content="ZXD Cloud Gaming — a browser gaming arcade.">
-  <title>ZXD Cloud Gaming</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17132d">
+  <meta name="description" content="A fan-made Friday Night Funkin' hub with an original playable rhythm mode, character profiles, music, and a community mod shelf.">
+  <title>Funkin' Night — FNF Fan Hub</title><link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <div class="scanlines"></div>
   <header class="topbar">
-    <a class="logo" href="#" aria-label="ZXD Cloud Gaming home"><span class="logo-mark">Z</span><span>ZXD <b>CLOUD GAMING</b></span></a>
-    <nav class="main-nav">
-      <button class="nav-link active" data-view="home">Discover</button>
-      <button class="nav-link" data-view="library">Game library</button>
-      <button class="nav-link" data-view="favorites">Favorites <span id="favoriteCount" class="count">0</span></button>
+    <a class="brand" href="#home" aria-label="Funkin Night home">FUNKIN' <span>NIGHT</span></a>
+    <nav aria-label="Main navigation">
+      <button data-screen="home">HOME</button><button data-screen="freeplay">PLAY</button><button data-screen="mods">MODS</button><button data-screen="characters">CHARACTERS</button><button data-screen="music">MUSIC</button><button data-screen="options">OPTIONS</button>
     </nav>
-    <div class="account-actions">
-      <button id="profileButton" class="profile-button" title="Profile"><span id="avatar">G</span><span id="accountLabel">Guest</span></button>
-      <button id="authButton" class="button button-outline">Sign in</button>
-    </div>
   </header>
-
   <main>
-    <section id="homeView" class="view active">
-      <section class="hero">
-        <div class="hero-copy">
-          <div class="pill"><span class="live-dot"></span> YOUR NEXT GAME IS ONE CLICK AWAY</div>
-          <h1>PLAY MORE.<br><span>WAIT LESS.</span></h1>
-          <p>Jump into fun, free-to-play browser games. No downloads, no installs — just press play.</p>
-          <div class="hero-actions"><button class="button button-primary" data-view="library">Explore games <span>↗</span></button><button class="button button-quiet" data-view="favorites">♥ My favorites</button></div>
-          <div class="hero-stats"><div><strong id="gameTotal">0</strong><small>GAMES</small></div><div><strong>INSTANT</strong><small>BROWSER PLAY</small></div><div><strong>FREE</strong><small>TO START</small></div></div>
+    <section id="home" class="screen active">
+      <div class="hero">
+        <p class="eyebrow">THE COMMUNITY FAN HUB</p><h1>FUNKIN'<br><span>AFTER HOURS</span></h1>
+        <p class="subtitle">Pick a track. Find your rhythm. Bring the noise.</p>
+        <div class="menu-buttons">
+          <button class="big-button pink" data-screen="freeplay">PLAY RHYTHM MODE</button>
+          <button class="big-button blue" data-screen="mods">EXPLORE MODS</button>
+          <a class="big-button official" href="https://ninja-muffin24.itch.io/funkin" target="_blank" rel="noopener">OFFICIAL FNF ↗</a>
         </div>
-        <div class="hero-art" aria-hidden="true"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="hero-cube">ZXD<span>▶</span></div><div class="float-tag tag-one">✦ ARCADE</div><div class="float-tag tag-two">LEVEL UP</div></div>
-      </section>
-      <section class="section">
-        <div class="section-heading"><div><p class="eyebrow">HAND-PICKED FOR YOU</p><h2>Featured games</h2></div><button class="text-link" data-view="library">View all games ↗</button></div>
-        <div id="featuredGrid" class="game-grid"></div>
-      </section>
-      <section class="section category-section">
-        <div class="section-heading"><div><p class="eyebrow">FIND YOUR NEXT OBSESSION</p><h2>Browse categories</h2></div></div>
-        <div id="categoryGrid" class="category-grid"></div>
-      </section>
+        <p class="small-note">Original fan-made rhythm mode • Arrow keys / WASD • Gamepad-ready menu design</p>
+      </div>
+      <div class="mascot" aria-hidden="true"><div class="cap"></div><div class="face">ツ</div><div class="body-shape"></div></div>
+      <div class="home-panels">
+        <article class="feature-tile"><span class="tile-icon">♫</span><h3>FREEPLAY</h3><p>Play original demo charts and chase a high score.</p><button data-screen="freeplay">OPEN PLAY</button></article>
+        <article class="feature-tile"><span class="tile-icon">✦</span><h3>MOD SHELF</h3><p>Keep track of mod pages and your own mod files.</p><button data-screen="mods">BROWSE MODS</button></article>
+        <article class="feature-tile"><span class="tile-icon">★</span><h3>FAN GUIDE</h3><p>Meet the familiar faces and explore music notes.</p><button data-screen="characters">MEET THE CAST</button></article>
+      </div>
     </section>
 
-    <section id="libraryView" class="view">
-      <div class="page-heading"><div><p class="eyebrow">THE ARCADE</p><h1>Game library</h1><p>Pick a game and get straight into the action.</p></div></div>
-      <div class="toolbar"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search games..." autocomplete="off"></label><select id="categoryFilter" aria-label="Filter by category"><option value="All">All categories</option></select><select id="sortFilter" aria-label="Sort games"><option value="featured">Featured first</option><option value="az">Name: A to Z</option></select></div>
-      <div id="libraryGrid" class="game-grid"></div>
-      <p id="emptyState" class="empty-state hidden">No games found. Try another search or category.</p>
+    <section id="story" class="screen panel">
+      <p class="eyebrow">STORY MODE</p><h2>CHOOSE A WEEK</h2><p class="muted">A short original sample set. These demo tracks are not official FNF songs.</p>
+      <div class="week-card"><div class="week-art">♪</div><div><h3>WEEK 1 — THE FIRST DUEL</h3><p>Three original demo tracks • Choose a difficulty in Options</p><button class="button pink" id="storyStart">PLAY WEEK</button></div></div><button class="text-button" data-screen="home">← BACK</button>
     </section>
 
-    <section id="favoritesView" class="view">
-      <div class="page-heading"><div><p class="eyebrow">YOUR PERSONAL ARCADE</p><h1>Favorites</h1><p>Games you've saved for later.</p></div></div>
-      <div id="favoritesGrid" class="game-grid"></div><p id="favoritesEmpty" class="empty-state">You haven't saved any games yet. Tap the ♡ on a game card to add it here.</p>
+    <section id="freeplay" class="screen panel"><p class="eyebrow">FREEPLAY</p><h2>SELECT A TRACK</h2><p class="muted">These are original practice charts generated for this fan-made site.</p><div id="songList" class="song-list"></div><button class="text-button" data-screen="home">← BACK</button></section>
+
+    <section id="mods" class="screen panel">
+      <p class="eyebrow">COMMUNITY CORNER</p><h2>THE MOD SHELF</h2>
+      <p class="muted">Discover community resources or keep a local list of mods you have downloaded. This static GitHub Pages site does not upload files to a server or execute mod packages.</p>
+      <div class="resource-grid">
+        <a class="resource-card" href="https://github.com/FunkinCrew/awesome-funkin-resources" target="_blank" rel="noopener"><span>✦ RESOURCE DIRECTORY</span><strong>Awesome Funkin' Resources ↗</strong><small>Community-curated engines, tools, guides, and modding resources.</small></a>
+        <a class="resource-card" href="https://funkincrew.github.io/funkin-modding-docs/" target="_blank" rel="noopener"><span>⌘ MODDING GUIDE</span><strong>Official Modding Docs ↗</strong><small>Learn about the official game's modding workflow.</small></a>
+      </div>
+      <div class="upload-panel"><h3>MY MOD COLLECTION</h3><p class="muted">Choose a ZIP to add its filename to this browser's collection. The file stays on your device.</p><label class="file-label" for="modFile">＋ ADD A MOD ZIP</label><input id="modFile" type="file" accept=".zip,.7z,.rar" hidden><div id="modCollection" class="mod-collection"><p class="muted">No local mods added yet.</p></div></div>
+      <button class="text-button" data-screen="home">← BACK</button>
     </section>
 
-    <section id="profileView" class="view narrow-view">
-      <div class="page-heading"><div><p class="eyebrow">PLAYER HUB</p><h1>Your profile</h1><p>Manage your local demo account and see your arcade stats.</p></div></div>
-      <div class="profile-card"><div class="big-avatar" id="profileAvatar">G</div><div><h2 id="profileName">Guest player</h2><p id="profileEmail">Not signed in</p></div></div>
-      <div class="profile-stats"><div><strong id="playedCount">0</strong><span>Games launched</span></div><div><strong id="savedCount">0</strong><span>Favorites</span></div></div>
-      <button id="profileAuthButton" class="button button-primary">Create account / Sign in</button>
-      <p class="notice">Demo accounts are stored only in this browser. This is not secure production authentication and does not sync across devices.</p>
+    <section id="characters" class="screen panel"><p class="eyebrow">MEET THE CAST</p><h2>CHARACTER FILES</h2><p class="muted">A fan guide to some of the best-known characters. Unofficial descriptions; no official character artwork is bundled here.</p>
+      <div class="character-grid">
+        <article class="character-card"><div class="character-avatar bf">♪</div><h3>BOYFRIEND</h3><p>The mic-wielding challenger who answers every call with a rhythm battle.</p></article>
+        <article class="character-card"><div class="character-avatar gf">♥</div><h3>GIRLFRIEND</h3><p>Always in the front row, cheering through every beat and battle.</p></article>
+        <article class="character-card"><div class="character-avatar dad">♫</div><h3>DADDY DEAREST</h3><p>A former rock star and a formidable first-week opponent.</p></article>
+        <article class="character-card"><div class="character-avatar pico">✦</div><h3>PICO</h3><p>A sharp, confident rival with a fast and punchy style.</p></article>
+        <article class="character-card"><div class="character-avatar skid">☠</div><h3>SKID & PUMP</h3><p>A spooky duo bringing playful Halloween energy to the stage.</p></article>
+        <article class="character-card"><div class="character-avatar senpai">❀</div><h3>SENPAI</h3><p>A charming date sim character with a much stranger side.</p></article>
+      </div><button class="text-button" data-screen="home">← BACK</button>
     </section>
 
-    <section id="adminView" class="view narrow-view">
-      <div class="page-heading"><div><p class="eyebrow">SITE MANAGEMENT</p><h1>Admin panel</h1><p>Add a game link to the library on this browser.</p></div></div>
-      <div class="admin-warning">Demo admin access: use the local demo admin credentials shown in README. Do not use this client-side gate for a real public admin system.</div>
-      <form id="adminForm" class="admin-form">
-        <label>Game title<input name="title" required maxlength="45" placeholder="My cool game"></label>
-        <label>Category<select name="category"><option>Arcade</option><option>Puzzle</option><option>Action</option><option>Casual</option><option>Strategy</option></select></label>
-        <label>Short description<input name="description" required maxlength="100" placeholder="A quick description"></label>
-        <label>Game URL<input name="url" type="url" required placeholder="https://example.com/game"></label>
-        <button class="button button-primary" type="submit">＋ Add game</button>
-      </form>
-      <h2 class="subheading">Manage custom games</h2><div id="customGameList" class="custom-game-list"></div>
+    <section id="music" class="screen panel"><p class="eyebrow">SOUND CHECK</p><h2>MUSIC & LINKS</h2><p class="muted">Listen to and support the official soundtrack through its creator-approved pages.</p>
+      <div class="music-links"><a href="https://kawaisprite.bandcamp.com/" target="_blank" rel="noopener">KAWAI SPRITE — BANDCAMP ↗</a><a href="https://ninja-muffin24.itch.io/funkin" target="_blank" rel="noopener">FRIDAY NIGHT FUNKIN' — OFFICIAL GAME ↗</a><a href="https://github.com/FunkinCrew/Funkin" target="_blank" rel="noopener">OFFICIAL SOURCE CODE ↗</a></div>
+      <div class="notice"><strong>Fan project notice</strong><p>This hub does not host or redistribute official songs, character art, game builds, or third-party mods. Follow each creator's permissions before sharing or installing anything.</p></div><button class="text-button" data-screen="home">← BACK</button>
     </section>
+
+    <section id="game" class="screen game-screen">
+      <div class="hud"><div><span class="hud-label">SCORE</span><strong id="score">0</strong></div><div class="health"><div id="healthFill"></div></div><div><span class="hud-label">COMBO</span><strong id="combo">0</strong></div></div>
+      <div class="stage"><div class="stage-character opponent"><div class="character-head">♫</div><span>RIVAL</span></div><div class="stage-character player"><div class="character-head">♪</div><span>YOU</span></div>
+        <div id="receptors" class="receptors"><div class="receptor" data-lane="0">←</div><div class="receptor" data-lane="1">↓</div><div class="receptor" data-lane="2">↑</div><div class="receptor" data-lane="3">→</div></div><div id="notes" class="notes"></div><div id="judgement" class="judgement">READY?</div>
+      </div>
+      <div class="game-bottom"><span id="songTitle">DEMO TRACK</span><span id="songTime">0:00</span><button id="pauseButton" class="button">PAUSE</button></div>
+      <div id="pauseOverlay" class="overlay hidden"><div class="dialog"><h2>PAUSED</h2><button id="resumeButton" class="button pink">RESUME</button><button id="quitButton" class="button">QUIT SONG</button></div></div>
+      <div id="resultOverlay" class="overlay hidden"><div class="dialog"><p class="eyebrow">TRACK COMPLETE</p><h2 id="resultTitle">NICE!</h2><p id="resultStats"></p><button id="againButton" class="button pink">PLAY AGAIN</button><button id="menuButton" class="button">SONG SELECT</button></div></div>
+    </section>
+
+    <section id="options" class="screen panel"><p class="eyebrow">SETTINGS</p><h2>MAKE IT YOURS</h2>
+      <div class="setting"><label for="difficulty">Difficulty</label><select id="difficulty"><option value="easy">Easy</option><option value="normal" selected>Normal</option><option value="hard">Hard</option></select></div>
+      <div class="setting"><label for="scrollSpeed">Note speed <span id="speedValue">1.0x</span></label><input id="scrollSpeed" type="range" min="0.7" max="1.8" step="0.1" value="1"></div>
+      <div class="setting"><label for="volume">Music volume <span id="volumeValue">60%</span></label><input id="volume" type="range" min="0" max="100" value="60"></div>
+      <p class="muted">Controls: ← ↓ ↑ → or A S W D. Press Escape to pause. Gamepad support depends on the browser and connected controller.</p><button class="text-button" data-screen="home">← BACK</button>
+    </section>
+    <section id="credits" class="screen panel"><p class="eyebrow">CREDITS</p><h2>THE TEAM</h2><p><strong>YOU</strong> — Site owner</p><p><strong>FUNKIN' CREW</strong> — Creators of Friday Night Funkin'</p><p class="muted">This is an unofficial fan-made project and is not affiliated with The Funkin' Crew. The playable rhythm mode and placeholder visuals here are original; official art, music, and game assets are not included.</p><button class="text-button" data-screen="home">← BACK</button></section>
   </main>
-
-  <footer><div class="footer-logo">ZXD <b>CLOUD GAMING</b></div><p>Browser gaming, made simple.</p><small>Game names, artwork and links are examples. Add only games and assets you have permission to use.</small></footer>
-
-  <div id="gameModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-card game-modal-card"><div class="modal-top"><div><p class="eyebrow">NOW PLAYING</p><h2 id="modalTitle">Game title</h2></div><button class="icon-button" id="closeGame" aria-label="Close game">✕</button></div><div id="gameStage" class="game-stage"></div><p id="gameHelp" class="game-help"></p></div>
-  </div>
-
-  <div id="authModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="authTitle">
-    <div class="modal-card auth-card"><button class="icon-button close-auth" aria-label="Close">✕</button><p class="eyebrow">WELCOME TO THE ARCADE</p><h2 id="authTitle">Sign in</h2><div class="auth-tabs"><button class="active" data-auth-mode="signin">Sign in</button><button data-auth-mode="signup">Create account</button></div><form id="authForm"><label>Username<input name="username" required minlength="3" maxlength="20" autocomplete="username" placeholder="Your player name"></label><label id="emailLabel" class="hidden">Email<input name="email" type="email" autocomplete="email" placeholder="you@example.com"></label><label>Password<input name="password" type="password" required minlength="4" autocomplete="current-password" placeholder="At least 4 characters"></label><button class="button button-primary full-button" type="submit">Continue</button></form><p id="authMessage" class="form-message"></p><p class="notice">This demo stores credentials in local browser storage. Never reuse a real password here.</p></div>
-  </div>
-  <div id="toast" class="toast hidden"></div>
-  <script src="app.js"></script>
-</body>
-</html>
+  <footer>UNOFFICIAL FAN PROJECT • RESPECT THE CREATORS • <span>PRESS START!</span></footer>
+  <script src="game.js"></script>
+</body></html>
